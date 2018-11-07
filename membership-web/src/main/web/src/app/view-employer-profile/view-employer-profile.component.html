@@ -1,0 +1,35 @@
+<div class="tab-emp-profile-card">
+  <mat-card-header>
+    <mat-card-title class="mat-h1">Enter Employer Profile information to View:&nbsp;</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form class="tab-emp-profile-form" [formGroup]="viewEmpProfileForm" (ngSubmit)="onSubmit()">
+      <table class="tab-emp-profile-full-width" cellspacing="0">
+        <mat-form-field class="tab-emp-profile-full-width">
+          <input type="text" matInput placeholder="Client ID" formControlName="clientId">
+          <mat-error
+            *ngIf="clientIdCtrl.hasError('required')">Client ID is <strong>required</strong></mat-error>
+        </mat-form-field>
+        <div>
+          <mat-form-field class="tab-emp-profile-full-width">
+            <input type="text" matInput placeholder="Case Number" formControlName="caseNumber">
+          </mat-form-field>
+        </div>
+        <mat-form-field class="tab-emp-profile-full-width">
+          <mat-select placeholder="Select Source Transaction" formControlName="sourceSystem">
+            <mat-option *ngFor="let itemSource of sourceTypes" [value]="itemSource">
+              {{itemSource}}
+            </mat-option>
+          </mat-select>
+          <mat-error
+            *ngIf="sourceSystemCtrl.hasError('required')">A Source Transaction is <strong>required</strong>
+          </mat-error>
+
+        </mat-form-field>
+      </table>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" type="submit">Submit</button>
+      </mat-card-actions>
+    </form>
+  </mat-card-content>
+</div>

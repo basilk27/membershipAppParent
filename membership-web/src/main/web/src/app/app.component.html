@@ -1,0 +1,30 @@
+<div>
+  <div>
+    <mat-toolbar color="primary">
+      <div fxFlexAlign="auto" class="mat-h1">
+        <span >Membership Electronic Eligibility Transfer</span>
+      </div>
+      <span class="fill-space"></span>
+      <div *ngIf="loginButtonOn">
+        <span>
+            <a mat-raised-button routerLink='/login'
+               class='mat-button'
+               (click)='onLoginClick()'>Login</a>
+        </span>
+      </div>
+    </mat-toolbar>
+  </div>
+  <!--
+    <div *ngIf='zManuState.mainManuFlag'>
+      <mat-toolbar color="accent">
+        <a mat-mat-raised-button  routerLink="/main" class='mat-button'>EET Main</a>
+        <a mat-mat-raised-button  routerLink="/cadocs" class='mat-button'>View CA-Doc</a>
+        <a mat-mat-raised-button  routerLink="/search" class='mat-button'>Search Status</a>
+        <a mat-mat-raised-button  routerLink="/eeterrors" class='mat-button'>EET Errors</a>
+        <a mat-mat-raised-button  routerLink="/schedule" class='mat-button'>Job Schedule</a>
+        <a mat-mat-raised-button  routerLink="/mapping" class='mat-button'>Group Mapping</a>
+      </mat-toolbar>
+    </div>
+  -->
+</div>
+<router-outlet></router-outlet>

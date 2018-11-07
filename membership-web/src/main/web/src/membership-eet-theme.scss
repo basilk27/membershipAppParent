@@ -1,0 +1,8 @@
+@import "~@angular/material/theming";
+@include mat-core();
+
+$member-eet-primary: mat-palette($mat-blue, 300);
+$member-eet-accent: mat-palette($mat-blue, 100);
+$member-eet-app-theme: mat-light-theme($member-eet-primary, $member-eet-accent);
+
+@include angular-material-theme($member-eet-app-theme)

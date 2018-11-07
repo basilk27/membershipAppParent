@@ -1,0 +1,36 @@
+<div class="tab-emp-profile-card">
+  <mat-card-header>
+    <mat-card-title class="mat-h1">Search Status Option:&nbsp;</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form class="tab-emp-profile-form" [formGroup]="searchStatusOptionForm" (ngSubmit)="onSubmit()">
+      <div fxLayout="">
+        <mat-form-field class="tab-emp-profile-full-width">
+          <mat-select []="" placeholder="Select Source Transaction" formControlName="sourceSystem">
+            <mat-option *ngFor="let itemSource of sourceTypes" [value]="itemSource">
+              {{itemSource}}
+            </mat-option>
+          </mat-select>
+          <mat-error
+            *ngIf="sourceSystemCtrl.hasError('required')">A Source Transaction is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field class="tab-emp-profile-full-width">
+          <mat-select placeholder="Select Job Type" formControlName="statusTypes">
+            <mat-option *ngFor="let itemstatusType of jobTypes" [value]="itemstatusType">
+              {{itemstatusType}}
+            </mat-option>
+          </mat-select>
+          <mat-error
+            *ngIf="sourceSystemCtrl.hasError('required')">A Job Type is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" type="submit">Submit</button>
+      </mat-card-actions>
+    </form>
+  </mat-card-content>
+</div>

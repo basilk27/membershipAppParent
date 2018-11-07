@@ -1,0 +1,51 @@
+/* You can add global styles to this file, and also import other style files */
+
+html {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  height: 100%;
+}
+
+body {
+  height: 100%;
+}
+
+.member-card {
+  position: absolute;
+  width: calc(100% - 0px);
+  min-height: 100% !important;
+}
+
+.member-card-2 {
+  width: calc(100% - 0px);
+  height: calc(100% - 0px);
+}
+
+
+.member-card-1 {
+  width: 100%;
+  height: 100%;
+  margin: 0% auto;
+}
+
+/* comments */
+
+.tab-emp-profile-card {
+  width: 900px;
+  margin-top: 5%;
+  margin-left: 20%;
+}
+
+.tab-emp-profile-form {
+  min-width: 160px;
+  max-width: 500px;
+  width: 100%;
+  margin-left: 25%;
+}
+
+tab-emp-profile-full-width {
+  width: 60%;
+}

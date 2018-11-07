@@ -1,0 +1,42 @@
+<div class="tab-emp-profile-card">
+  <mat-card-header>
+    <mat-card-title class="mat-h1">Select the Group Mapping Option:&nbsp;</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form class="tab-emp-profile-form" [formGroup]="groupMappingOptionForm" (ngSubmit)="onSubmit()">
+      <table class="tab-emp-profile-full-width" cellspacing="0">
+        <mat-form-field class="tab-emp-profile-full-width">
+          <input type="text" matInput placeholder="Client ID" formControlName="clientId">
+          <mat-error
+            *ngIf="clientIdCtrl.hasError('required')">Client ID is <strong>required</strong></mat-error>
+        </mat-form-field>
+        <div>
+          <mat-form-field class="tab-emp-profile-full-width">
+            <mat-select placeholder="Select an Option" formControlName="optionType">
+              <mat-option *ngFor="let itemOptionType of optionTypes" [value]="itemOptionType">
+                {{itemOptionType}}
+              </mat-option>
+            </mat-select>
+            <mat-error
+              *ngIf="sourceSystemCtrl.hasError('required')">A Option is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <mat-form-field class="tab-emp-profile-full-width">
+          <mat-select placeholder="Select Source Transaction" formControlName="sourceSystem">
+            <mat-option *ngFor="let itemSourceTypes of sourceTypes" [value]="itemSourceTypes">
+              {{itemSourceTypes}}
+            </mat-option>
+          </mat-select>
+          <mat-error
+            *ngIf="sourceSystemCtrl.hasError('required')">A Source Transaction is <strong>required</strong>
+          </mat-error>
+
+        </mat-form-field>
+      </table>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" type="submit">Submit</button>
+      </mat-card-actions>
+    </form>
+  </mat-card-content>
+</div>

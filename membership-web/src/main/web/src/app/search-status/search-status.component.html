@@ -1,0 +1,33 @@
+<mat-card class="eet-main-card">
+  <div *ngIf='zManuState.mainManuFlag'>
+    <mat-toolbar color="accent">
+      <div *ngIf='zManuState.mainButtonOn'>
+        <a mat-mat-raised-button  (click)="mainRouter()" class='mat-button'>EET Main</a>
+      </div>
+      <div *ngIf='zManuState.cadocsButtonOn'>
+        <a mat-mat-raised-button  (click)="cadocsRouter()" class='mat-button'>View CA-Doc</a>
+        <!--  <a href="http://docviewweb.wellpoint.com" target="_blank">View CA-Doc</a> -->
+      </div>
+      <div *ngIf='zManuState.searchButtonOn'>
+        <a mat-mat-raised-button  (click)="searchRouter()" class='mat-button'>Search Status</a>
+      </div>
+      <div *ngIf='zManuState.eeterrorsButtonOn'>
+        <a mat-mat-raised-button  (click)="eeterrorsRouter()" class='mat-button'>EET Errors</a>
+      </div>
+      <div *ngIf='zManuState.scheduleButtonOn'>
+        <a mat-mat-raised-button  (click)="scheduleRouter()" class='mat-button'>Job Schedule</a>
+      </div>
+      <div *ngIf='zManuState.mappingButtonOn'>
+        <a mat-mat-raised-button  (click)="mappingRouter()" class='mat-button'>Group Mapping</a>
+      </div>
+    </mat-toolbar>
+  </div>
+  <div fxLayout="column" fxFlexAlign="stretch">
+    <mat-card>
+      <mat-card-content>
+        <app-search-status-option></app-search-status-option>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</mat-card>
+
