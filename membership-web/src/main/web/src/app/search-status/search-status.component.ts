@@ -15,6 +15,7 @@ export class SearchStatusComponent implements OnInit {
     this.zManuState =  {
       mainManuFlag: true,
       mainButtonOn: true,
+      maintenanceButtonOn: true,
       cadocsButtonOn: false,
       searchButtonOn: false,
       eeterrorsButtonOn: false,

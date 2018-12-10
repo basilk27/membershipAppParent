@@ -15,6 +15,7 @@ export class MenuStateService {
 //      loginButtonOn: true,
       mainManuFlag: false,
       mainButtonOn: false,
+      maintenanceButtonOn: true,
       cadocsButtonOn: false,
       searchButtonOn: false,
       eeterrorsButtonOn: false,

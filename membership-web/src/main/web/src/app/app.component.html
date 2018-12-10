@@ -1,30 +1,33 @@
-<div>
+<div fxLayout="column" fxFill fxLayoutGap="10px">
   <div>
     <mat-toolbar color="primary">
       <div fxFlexAlign="auto" class="mat-h1">
-        <span >Membership Electronic Eligibility Transfer</span>
+        <span>Membership Electronic Eligibility Transfer</span>
       </div>
       <span class="fill-space"></span>
-      <div *ngIf="loginButtonOn">
+      <div *ngIf="loginLogoutActivateBtn.loginFlag">
         <span>
             <a mat-raised-button routerLink='/login'
                class='mat-button'
                (click)='onLoginClick()'>Login</a>
         </span>
       </div>
+      <div *ngIf="loginLogoutActivateBtn.logoutFlag">
+        <span>
+            <a mat-raised-button routerLink='/login'
+               class='mat-button'
+               (click)='onLogoutClick()'>Logout</a>
+        </span>
+      </div>
     </mat-toolbar>
   </div>
-  <!--
-    <div *ngIf='zManuState.mainManuFlag'>
-      <mat-toolbar color="accent">
-        <a mat-mat-raised-button  routerLink="/main" class='mat-button'>EET Main</a>
-        <a mat-mat-raised-button  routerLink="/cadocs" class='mat-button'>View CA-Doc</a>
-        <a mat-mat-raised-button  routerLink="/search" class='mat-button'>Search Status</a>
-        <a mat-mat-raised-button  routerLink="/eeterrors" class='mat-button'>EET Errors</a>
-        <a mat-mat-raised-button  routerLink="/schedule" class='mat-button'>Job Schedule</a>
-        <a mat-mat-raised-button  routerLink="/mapping" class='mat-button'>Group Mapping</a>
-      </mat-toolbar>
+  <div>
+    <app-eet-member-manu></app-eet-member-manu>
+    <router-outlet></router-outlet>
+  </div>
+  <footer fxLayout="column">
+    <div fxLayout="row" fxLayoutAlign="center center">
+      <p fxFlexAlign="center">Copyright &copy; 2018 Anthem</p>
     </div>
-  -->
+  </footer>
 </div>
-<router-outlet></router-outlet>

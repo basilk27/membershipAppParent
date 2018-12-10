@@ -1,12 +1,12 @@
 import { BrowserModule }            from '@angular/platform-browser';
 import { BrowserAnimationsModule }  from '@angular/platform-browser/animations';
-//import { FlexLayoutModule }         from '@angular/flex-layout';
 import { ReactiveFormsModule }      from '@angular/forms';
 import { HttpClientModule }         from '@angular/common/http';
 import { NgModule }                 from '@angular/core';
 
 import { LoginService }             from './service/login/login.service';
 import { MenuStateService }         from './service/state/menu-state.service';
+import { MenuEnablerService } from './service/enable/menu-enabler.service';
 
 import { AppRoutingModule }         from './app-routing.module';
 import { AppComponent }             from './app.component';
@@ -28,8 +28,10 @@ import { JobScheduleComponent } from './job-schedule/job-schedule.component';
 import { JobScheduleOptionComponent } from './job-schedule-option/job-schedule-option.component';
 import { EetErrorsComponent } from './eet-errors/eet-errors.component';
 import { ExternalUrlDirective } from './directive/external-url.directive';
- import { CaDocReportsComponent } from './ca-doc-reports/ca-doc-reports.component';
+import { CaDocReportsComponent } from './ca-doc-reports/ca-doc-reports.component';
 import { ExternalLinkComponent } from './external-link/external-link.component';
+import { ClientMaintenanceComponent } from './client-maintenance/client-maintenance.component';
+import { EetMemberManuComponent } from './eet-member-manu/eet-member-manu.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +54,9 @@ import { ExternalLinkComponent } from './external-link/external-link.component';
     EetErrorsComponent,
     ExternalUrlDirective,
     CaDocReportsComponent,
-    ExternalLinkComponent
+    ExternalLinkComponent,
+    ClientMaintenanceComponent,
+    EetMemberManuComponent
   ],
   imports: [
     BrowserModule,
@@ -64,7 +68,8 @@ import { ExternalLinkComponent } from './external-link/external-link.component';
   ],
   providers: [
     LoginService,
-    MenuStateService
+    MenuStateService,
+    MenuEnablerService
   ],
   bootstrap: [AppComponent]
 })

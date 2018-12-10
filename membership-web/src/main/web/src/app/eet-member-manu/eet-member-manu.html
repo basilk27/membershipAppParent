@@ -1,0 +1,28 @@
+<mat-card class="eet-main-card">
+    <div *ngIf='eetMenu.mainManuFlag'>
+        <mat-toolbar color="accent">
+            <div *ngIf='eetMenu.mainButtonOn'>
+                <a mat-mat-raised-button  (click)="mainRouter()" class='mat-button'>EET Main</a>
+            </div>
+            <div *ngIf='eetMenu.cadocsButtonOn'>
+                <a mat-mat-raised-button  (click)="cadocsRouter()" class='mat-button'>View CA-Doc</a>
+                <!--  <a href="http://docviewweb.wellpoint.com" target="_blank">View CA-Doc</a> -->
+            </div>
+            <div *ngIf='eetMenu.maintenanceButtonOn'>
+                <a mat-mat-raised-button  (click)="maintenanceRouter()" class='mat-button'>Client Maintenance</a>
+            </div>
+            <div *ngIf='eetMenu.searchButtonOn'>
+                <a mat-mat-raised-button  (click)="searchRouter()" class='mat-button'>Search Status</a>
+            </div>
+            <div *ngIf='eetMenu.eeterrorsButtonOn'>
+                <a mat-mat-raised-button  (click)="eeterrorsRouter()" class='mat-button'>EET Errors</a>
+            </div>
+            <div *ngIf='eetMenu.scheduleButtonOn'>
+                <a mat-mat-raised-button  (click)="scheduleRouter()" class='mat-button'>Job Schedule</a>
+            </div>
+            <div *ngIf='eetMenu.mappingButtonOn'>
+                <a mat-mat-raised-button  (click)="mappingRouter()" class='mat-button'>Group Mapping</a>
+            </div>
+        </mat-toolbar>
+    </div>
+</mat-card>

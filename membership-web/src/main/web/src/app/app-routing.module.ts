@@ -4,16 +4,16 @@ import { Routes,
          RouterModule,
          ActivatedRouteSnapshot } from '@angular/router';
 
-import {WelcomeComponent} from "./welcome/welcome.component";
-import {PageNotFoundComponent} from "./page-not-found/page-not-found.component";
-import {LoginComponent} from "./login/login.component";
-import {EetMainComponent} from "./eet-main/eet-main.component";
-import {CaDocReportsComponent} from "./ca-doc-reports/ca-doc-reports.component";
-import {SearchStatusComponent} from "./search-status/search-status.component";
-import {EetErrorsComponent} from "./eet-errors/eet-errors.component";
-import {JobScheduleComponent} from "./job-schedule/job-schedule.component";
-import {GroupMappingComponent} from "./group-mapping/group-mapping.component";
-import {ExternalLinkComponent} from "./external-link/external-link.component";
+import {WelcomeComponent} from './welcome/welcome.component';
+import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
+import {LoginComponent} from './login/login.component';
+import {EetMainComponent} from './eet-main/eet-main.component';
+import {CaDocReportsComponent} from './ca-doc-reports/ca-doc-reports.component';
+import {SearchStatusComponent} from './search-status/search-status.component';
+import {EetErrorsComponent} from './eet-errors/eet-errors.component';
+import {JobScheduleComponent} from './job-schedule/job-schedule.component';
+import {GroupMappingComponent} from './group-mapping/group-mapping.component';
+import {ExternalLinkComponent} from './external-link/external-link.component';
 
 const externalUrlProvider = new InjectionToken('externalUrlRedirectResolver');
 const deactivateGuard = new InjectionToken('deactivateGuard');

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatTabGroup } from '@angular/material';
 import { ManuState } from '../model/manu-state';
 import { Router } from '@angular/router';
+import { MenuEnablerService } from '../service/enable/menu-enabler.service';
 
 @Component({
   selector: 'app-eet-main',
@@ -10,12 +11,14 @@ import { Router } from '@angular/router';
 })
 export class EetMainComponent implements OnInit {
 
+  actionLabel: string;
   zManuState: ManuState;
 
-  constructor( private _router: Router ) {
+  constructor( private _router: Router, private enableLoginLogoutSrv: MenuEnablerService ) {
     this.zManuState =  {
       mainManuFlag: true,
       mainButtonOn: false,
+      maintenanceButtonOn: true,
       cadocsButtonOn: true,
       searchButtonOn: true,
       eeterrorsButtonOn: true,
@@ -25,8 +28,32 @@ export class EetMainComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.enableLoginLogoutSrv.actionLabelObservable.subscribe( actionLabel => this.actionLabel = actionLabel );
   }
 
+  onSelectTabChange( event ) {
+    console.log( event.index );
+    let actionLabel: string;
+
+    switch ( event.index ) {
+      case 0: actionLabel = 'Create Employer EET Profile';
+        break;
+
+      case 1: actionLabel = 'Update Employer EET Profile';
+        break;
+
+      case 2: actionLabel = 'View Employer EET Profile';
+        break;
+
+      case 3: actionLabel = 'Update Employer EET Contacts';
+        break;
+
+      default:
+        actionLabel = 'Undefined Tab';
+    }
+
+    this.enableLoginLogoutSrv.setActionLabel( actionLabel );
+  }
   mainRouter(): void {
     this._router.navigate(['/main']);
   }
@@ -49,5 +76,9 @@ export class EetMainComponent implements OnInit {
 
   mappingRouter(): void {
     this._router.navigate(['/mapping']);
+  }
+
+  maintenanceRouter(): void {
+    this._router.navigate(['/maintenance']);
   }
 }

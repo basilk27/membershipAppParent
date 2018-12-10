@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ManuState } from '../model/manu-state';
 import { Router } from '@angular/router';
+import { MenuEnablerService } from '../service/enable/menu-enabler.service';
 
 @Component({
   selector: 'app-eet-errors',
@@ -9,24 +10,28 @@ import { Router } from '@angular/router';
 })
 export class EetErrorsComponent implements OnInit {
 
+  actionLabel: string;
   zManuState: ManuState;
 
-  constructor( private _router: Router ) {
+  constructor( private _router: Router, private enableLoginLogoutSrv: MenuEnablerService ) {
+/*
     this.zManuState =  {
       mainManuFlag: true,
       mainButtonOn: true,
+      maintenanceButtonOn: true,
       cadocsButtonOn: false,
       searchButtonOn: false,
       eeterrorsButtonOn: false,
       scheduleButtonOn: false,
       mappingButtonOn: false
     };
-
+*/
   }
 
   ngOnInit() {
+    this.enableLoginLogoutSrv.actionLabelObservable.subscribe( actionLabel => this.actionLabel = actionLabel );
   }
-
+/*
   mainRouter(): void {
     this._router.navigate(['/main']);
   }
@@ -50,5 +55,5 @@ export class EetErrorsComponent implements OnInit {
   mappingRouter(): void {
     this._router.navigate(['/mapping']);
   }
-
+*/
 }

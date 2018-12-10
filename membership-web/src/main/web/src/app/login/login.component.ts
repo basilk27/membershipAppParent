@@ -1,12 +1,15 @@
-import { Component, OnInit }  from '@angular/core';
-import { Router }             from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { FormBuilder,
          FormGroup,
-         Validators }         from '@angular/forms';
-import { LoginService }       from '../service/login/login.service';
-import { Login }              from '../model/login';
-import { LoginStatus }        from '../model/login-status';
-//import { MeanuStateService }  from '../service/state/meanu-state.service';
+         Validators } from '@angular/forms';
+import { LoginService } from '../service/login/login.service';
+import { Login } from '../model/login';
+import { LoginStatus } from '../model/login-status';
+import { MenuEnablerService } from '../service/enable/menu-enabler.service';
+import { LoginLogoutActivateBtn } from '../model/login-logout-activate-btn';
+import { EetMenuBuilder } from '../model/eet-menu-builder';
+// import { MeanuStateService }  from '../service/state/meanu-state.service';
 // import { ManuState }          from '../model/manu-state';
 
 @Component({
@@ -23,7 +26,8 @@ export class LoginComponent implements OnInit {
 
   constructor( private router: Router,
                private loginService: LoginService,
-               private formBuilder: FormBuilder) {
+               private formBuilder: FormBuilder,
+               private enableLoginLogoutSrv: MenuEnablerService ) {
     this.displayManu = false;
     this.invalidAuth = false;
   }
@@ -68,15 +72,26 @@ export class LoginComponent implements OnInit {
           });
     */
 
-    this.loginService.login( loginModel )
-      .subscribe( (res: LoginStatus) => { this.loginStatus = res; },
-        ( err: LoginStatus ) => { this.loginStatus = err; } );
+// bb    this.loginService.login( loginModel )
+// bb      .subscribe( (res: LoginStatus) => { this.loginStatus = res; },
+// bb        ( err: LoginStatus ) => { this.loginStatus = err; } );
 
 //
 //    console.log('into onSubmit 44444');
 //    if ( this.loginStatus.loginFlag === false ) {
 //      return;
 //    }
+    this.enableLoginLogoutSrv.setLoginLogoutButtonFlags( new LoginLogoutActivateBtn(false, true ) );
+    this.enableLoginLogoutSrv.setMemberEttMenu( new EetMenuBuilder()
+        .setMainManuFlag( true )
+        .setMainButtonOn( false )
+        .setMaintenanceButtonOn( true )
+        .setCadocsButtonOn( true )
+        .setSearchButtonOn( true )
+        .setEeterrorsButtonOn( true )
+        .setScheduleButtonOn( true )
+        .setMappingButtonOn( true )
+        .build());
 
     this.router.navigate(['main']);
   }
